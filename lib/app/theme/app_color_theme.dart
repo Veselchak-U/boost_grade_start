@@ -7,4 +7,8 @@ abstract class AppColorTheme {
       Provider.of<AppSettings>(context).colorTheme;
 
   ThemeData get theme;
+
+  AppBarTheme get appBarTheme;
+
+  TextStyle get appBarShadowTextStyle;
 }

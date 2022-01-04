@@ -14,5 +14,10 @@
   "fabColorTooltip": "Изменить цветовую тему",
   "fabLanguageTooltip": "Сменить язык",
   "fabIncrementTooltip": "Увеличить",
-  "fabDecrementTooltip": "Уменьшить"
+  "fabDecrementTooltip": "Уменьшить",
+  "mainScreenTitle": "Главная",
+  "squaresScreenTitle": "4 квадрата",
+  "colorListScreenTitle": "Цветной список",
+  "codelabScreenTitle": "Codelab",
+  "asyncRequestScreenTitle": "Асинхронный запрос"
 }

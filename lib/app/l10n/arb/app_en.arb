@@ -14,5 +14,10 @@
   "fabColorTooltip": "Change color theme",
   "fabLanguageTooltip": "Change language",
   "fabIncrementTooltip": "Increment",
-  "fabDecrementTooltip": "Decrement"
+  "fabDecrementTooltip": "Decrement",
+  "mainScreenTitle": "Main",
+  "squaresScreenTitle": "4 squares",
+  "colorListScreenTitle": "Color list",
+  "codelabScreenTitle": "Codelab",
+  "asyncRequestScreenTitle": "Asynchronous request"
 }
