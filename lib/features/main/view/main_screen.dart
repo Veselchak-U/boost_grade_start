@@ -18,6 +18,7 @@ class MainScreen extends StatelessWidget {
             style: colorTheme.appBarShadowTextStyle,
           ),
         ),
+        centerTitle: false,
       ),
       body: SingleChildScrollView(
         child: Padding(
