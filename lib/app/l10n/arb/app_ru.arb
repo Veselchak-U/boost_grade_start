@@ -1,0 +1,18 @@
+{
+  "appTitle": "BoostGrade старт",
+  "appInit": "Инициализация ...",
+  "navigatorErrorNoRoute": "Маршрут не определен для '{routeName}'",
+  "@navigatorErrorNoRoute": {
+    "placeholders": {
+      "routeName": {
+        "type": "String?"
+      }
+    }
+  },
+  "homeScreenTitle": "Flutter-демо домашняя страница",
+  "homeScreenLabel": "Вы нажимали на кнопку столько раз:",
+  "fabColorTooltip": "Изменить цветовую тему",
+  "fabLanguageTooltip": "Сменить язык",
+  "fabIncrementTooltip": "Увеличить",
+  "fabDecrementTooltip": "Уменьшить"
+}

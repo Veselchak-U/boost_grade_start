@@ -1,0 +1,18 @@
+{
+  "appTitle": "BoostGrade start",
+  "appInit": "Initialization ...",
+  "navigatorErrorNoRoute": "No route defined for '{routeName}'",
+  "@navigatorErrorNoRoute": {
+    "placeholders": {
+      "routeName": {
+        "type": "String?"
+      }
+    }
+  },
+  "homeScreenTitle": "Flutter Demo Home Page",
+  "homeScreenLabel": "You have pushed the button this many times:",
+  "fabColorTooltip": "Change color theme",
+  "fabLanguageTooltip": "Change language",
+  "fabIncrementTooltip": "Increment",
+  "fabDecrementTooltip": "Decrement"
+}
