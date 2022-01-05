@@ -17,6 +17,7 @@ class AppColorThemeLight implements AppColorTheme {
   @override
   AppBarTheme get appBarTheme => const AppBarTheme(
         color: _primaryColor,
+        titleSpacing: 0,
         titleTextStyle: TextStyle(
           color: _onSurface,
           fontSize: 22,
