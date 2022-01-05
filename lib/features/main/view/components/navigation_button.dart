@@ -24,7 +24,7 @@ class NavigationButton extends StatelessWidget {
   Widget build(BuildContext context) {
     final textTheme = AppTextTheme.of(context);
     final colorTheme = AppColorTheme.of(context);
-    final borderRadius = BorderRadius.circular(8);
+    final borderRadius = BorderRadius.circular(6);
     return Container(
       height: 48,
       margin: margin,
@@ -38,7 +38,7 @@ class NavigationButton extends StatelessWidget {
           onTap: () => _onTap(context),
           borderRadius: borderRadius,
           child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 24),
+            padding: const EdgeInsets.symmetric(horizontal: 21),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [

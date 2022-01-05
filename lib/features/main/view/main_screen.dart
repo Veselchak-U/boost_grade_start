@@ -12,7 +12,7 @@ class MainScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Padding(
-          padding: const EdgeInsets.only(left: 40),
+          padding: const EdgeInsets.only(left: 56),
           child: Text(
             context.l10n.mainScreenTitle,
             style: colorTheme.appBarShadowTextStyle,
@@ -22,7 +22,7 @@ class MainScreen extends StatelessWidget {
       ),
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.all(16),
+          padding: const EdgeInsets.symmetric(vertical: 14, horizontal: 16),
           child: Column(
             children: [
               NavigationButton(

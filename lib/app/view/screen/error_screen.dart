@@ -8,6 +8,7 @@ class ErrorScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Material(
+      color: Colors.white,
       child: Directionality(
         textDirection: TextDirection.ltr,
         child: SingleChildScrollView(
