@@ -2,10 +2,11 @@ import 'package:boost_grade_start/app/settings/app_settings.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-class AppTextTheme {
-  static AppTextTheme of(BuildContext context) =>
-      Provider.of<AppSettings>(context).textTheme;
+extension AppTextThemeX on BuildContext {
+  AppTextTheme get textTheme => Provider.of<AppSettings>(this).textTheme;
+}
 
+class AppTextTheme {
   const AppTextTheme();
 
   final TextStyle s32w7 = const TextStyle(

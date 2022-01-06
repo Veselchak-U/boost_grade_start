@@ -22,34 +22,20 @@ class NavigationButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final textTheme = AppTextTheme.of(context);
-    final colorTheme = AppColorTheme.of(context);
-    final borderRadius = BorderRadius.circular(6);
-    return Container(
-      height: 48,
-      margin: margin,
-      decoration: BoxDecoration(
-        color: colorTheme.theme.primaryColor,
-        borderRadius: borderRadius,
-      ),
-      child: Material(
-        color: Colors.transparent,
-        child: InkWell(
-          onTap: () => _onTap(context),
-          borderRadius: borderRadius,
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 21),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  label,
-                  style: textTheme.s16w4,
-                ),
-                const Icon(Icons.arrow_forward),
-              ],
+    return Padding(
+      padding: margin,
+      child: TextButton(
+        onPressed: () => _onTap(context),
+        style: context.colorTheme.navigationButtonStyle,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Text(
+              label,
+              style: context.textTheme.s16w4,
             ),
-          ),
+            const Icon(Icons.arrow_forward),
+          ],
         ),
       ),
     );

@@ -8,7 +8,7 @@ class AppColorThemeOrange implements AppColorTheme {
   ThemeData get theme => ThemeData(
         primarySwatch: Colors.orange,
       ).copyWith(
-        // primaryColor: _primaryColor,
+        primaryColor: _primaryColor,
         backgroundColor: _white,
         scaffoldBackgroundColor: _white,
         appBarTheme: appBarTheme,
@@ -16,7 +16,7 @@ class AppColorThemeOrange implements AppColorTheme {
 
   @override
   AppBarTheme get appBarTheme => const AppBarTheme(
-        // color: _primaryColor,
+        color: _primaryColor,
         titleSpacing: 0,
         titleTextStyle: TextStyle(
           color: _onSurface,
@@ -27,8 +27,7 @@ class AppColorThemeOrange implements AppColorTheme {
       );
 
   @override
-  TextStyle get appBarShadowTextStyle =>
-      theme.appBarTheme.titleTextStyle!.copyWith(
+  TextStyle get appBarShadowTextStyle => appBarTheme.titleTextStyle!.copyWith(
         shadows: [
           const Shadow(
             color: _textShadow,
@@ -38,10 +37,21 @@ class AppColorThemeOrange implements AppColorTheme {
         ],
       );
 
+  @override
+  ButtonStyle get navigationButtonStyle => TextButton.styleFrom(
+        fixedSize: const Size(double.infinity, 48),
+        elevation: 0,
+        backgroundColor: _primaryColor,
+        primary: _onSurface,
+        padding: const EdgeInsets.symmetric(horizontal: 21),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(6),
+        ),
+      );
+
   // background
   static const _white = Color(0xFFFFFFFF);
-
-  // static const _primaryColor = Color(0xFF43ABF5);
+  static const _primaryColor = Colors.orangeAccent;
 
   // text
   static const _onSurface = Color(0xFF1C1B1F);

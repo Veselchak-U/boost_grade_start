@@ -8,14 +8,13 @@ class MainScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final colorTheme = AppColorTheme.of(context);
     return Scaffold(
       appBar: AppBar(
         title: Padding(
           padding: const EdgeInsets.only(left: 56),
           child: Text(
             context.l10n.mainScreenTitle,
-            style: colorTheme.appBarShadowTextStyle,
+            style: context.colorTheme.appBarShadowTextStyle,
           ),
         ),
         centerTitle: false,

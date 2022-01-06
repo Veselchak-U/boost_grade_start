@@ -37,6 +37,18 @@ class AppColorThemeLight implements AppColorTheme {
         ],
       );
 
+  @override
+  ButtonStyle get navigationButtonStyle => TextButton.styleFrom(
+        fixedSize: const Size(double.infinity, 48),
+        elevation: 0,
+        backgroundColor: _primaryColor,
+        primary: _onSurface,
+        padding: const EdgeInsets.symmetric(horizontal: 21),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(6),
+        ),
+      );
+
   // background
   static const _white = Color(0xFFFFFFFF);
   static const _primaryColor = Color(0xFF43ABF5);

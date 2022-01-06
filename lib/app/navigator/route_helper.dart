@@ -5,7 +5,7 @@ class RouteHelper {
   static MaterialPageRoute<PageRoute> getInitialRoute(RouteSettings settings) {
     return MaterialPageRoute<PageRoute>(
       settings: settings,
-      builder: (context) => const MainScreen(), //const HomeScreen(),
+      builder: (context) => const MainScreen(),
     );
   }
 }

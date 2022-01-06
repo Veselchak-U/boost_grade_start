@@ -68,8 +68,6 @@ class _MyHomePageState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final textTheme = AppTextTheme.of(context);
-    final colorTheme = AppColorTheme.of(context);
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
@@ -81,8 +79,8 @@ class _MyHomePageState extends State<HomeScreen> {
             Text(context.l10n.homeScreenLabel),
             Text(
               '$_counter',
-              style: textTheme.s32w7.copyWith(
-                color: colorTheme.theme.colorScheme.secondary,
+              style: context.textTheme.s32w7.copyWith(
+                color: context.colorTheme.theme.colorScheme.secondary,
               ),
             ),
           ],
