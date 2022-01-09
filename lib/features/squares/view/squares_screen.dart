@@ -16,10 +16,10 @@ class SquaresScreen extends StatefulWidget {
 class _SquaresScreenState extends State<SquaresScreen> {
   static const _numberSquares = 4;
   final _random = Random();
-  late List<ColorBox> _squares;
+  late List<Color?> _colors;
 
   Color get _randomColor => Color.fromARGB(
-        _random.nextInt(256),
+        255,
         _random.nextInt(256),
         _random.nextInt(256),
         _random.nextInt(256),
@@ -28,28 +28,27 @@ class _SquaresScreenState extends State<SquaresScreen> {
   @override
   void initState() {
     super.initState();
-    _squares = List.generate(
+    _colors = List.generate(
       _numberSquares,
-      (index) => ColorBox(
-        key: ValueKey(index),
-      ),
+      (index) => null,
     );
   }
 
   void _changeColors() {
     setState(() {
-      _squares = List.generate(
+      _colors = List.generate(
         _numberSquares,
-        (index) => ColorBox(
-          key: ValueKey(index),
-          color: _randomColor,
-        ),
+        (index) => _randomColor,
       );
     });
   }
 
   @override
   Widget build(BuildContext context) {
+    final _squares = List.generate(
+      _numberSquares,
+      (index) => ColorBox(color: _colors[index]),
+    );
     return Scaffold(
       appBar: AppBar(
         title: Text(context.l10n.squaresScreenTitle),
