@@ -39,6 +39,10 @@ class _SquaresScreenState extends State<SquaresScreen> {
     return Scaffold(
       appBar: AppBar(
         title: Text(context.l10n.squaresScreenTitle),
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back),
+          onPressed: () => Navigator.pop(context),
+        ),
       ),
       body: Stack(
         children: [
