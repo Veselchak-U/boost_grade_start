@@ -39,6 +39,10 @@ class _ColourListScreenState extends State<ColourListScreen> {
     return Scaffold(
       appBar: AppBar(
         title: Text(context.l10n.colorListScreenTitle),
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back),
+          onPressed: () => Navigator.pop(context),
+        ),
       ),
       body: Stack(
         children: [
