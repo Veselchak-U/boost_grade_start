@@ -2,6 +2,8 @@ import 'package:boost_grade_start/app/l10n/l10n.dart';
 import 'package:boost_grade_start/app/navigator/route_helper.dart';
 import 'package:boost_grade_start/features/main/view/main_screen.dart';
 import 'package:boost_grade_start/features/main/view/main_screen_route.dart';
+import 'package:boost_grade_start/features/squares/view/squares_screen.dart';
+import 'package:boost_grade_start/features/squares/view/squares_screen_route.dart';
 import 'package:flutter/material.dart';
 
 class RouteGenerator {
@@ -17,6 +19,15 @@ class RouteGenerator {
             arguments: settings.arguments,
           ),
           builder: (_) => const MainScreen(),
+        );
+
+      case SquaresScreenRoute.name:
+        return MaterialPageRoute<PageRoute>(
+          settings: RouteSettings(
+            name: settings.name,
+            arguments: settings.arguments,
+          ),
+          builder: (_) => const SquaresScreen(),
         );
 
       default:

@@ -1,6 +1,7 @@
 import 'package:boost_grade_start/app/l10n/l10n.dart';
 import 'package:boost_grade_start/app/theme/app_color_theme.dart';
 import 'package:boost_grade_start/features/main/view/components/navigation_button.dart';
+import 'package:boost_grade_start/features/squares/view/squares_screen_route.dart';
 import 'package:flutter/material.dart';
 
 class MainScreen extends StatelessWidget {
@@ -17,7 +18,6 @@ class MainScreen extends StatelessWidget {
             style: context.colorTheme.appBarShadowTextStyle,
           ),
         ),
-        centerTitle: false,
       ),
       body: SingleChildScrollView(
         child: Padding(
@@ -26,6 +26,7 @@ class MainScreen extends StatelessWidget {
             children: [
               NavigationButton(
                 label: context.l10n.squaresScreenTitle,
+                routeName: SquaresScreenRoute.name,
               ),
               NavigationButton(
                 label: context.l10n.colorListScreenTitle,
