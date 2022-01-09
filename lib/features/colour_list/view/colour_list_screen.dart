@@ -6,17 +6,17 @@ import 'package:boost_grade_start/app/view/components/color_box.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-class SquaresScreen extends StatefulWidget {
-  const SquaresScreen();
+class ColourListScreen extends StatefulWidget {
+  const ColourListScreen();
 
   @override
-  State<SquaresScreen> createState() => _SquaresScreenState();
+  State<ColourListScreen> createState() => _ColourListScreenState();
 }
 
-class _SquaresScreenState extends State<SquaresScreen> {
-  static const _numberSquares = 4;
+class _ColourListScreenState extends State<ColourListScreen> {
+  static const _numberItems = 1000;
   final _random = Random();
-  late List<Color?> _colors;
+  List<Color>? _colors;
 
   Color get _randomColor => Color.fromARGB(
         255,
@@ -25,19 +25,10 @@ class _SquaresScreenState extends State<SquaresScreen> {
         _random.nextInt(256),
       );
 
-  @override
-  void initState() {
-    super.initState();
-    _colors = List.generate(
-      _numberSquares,
-      (index) => null,
-    );
-  }
-
   void _changeColors() {
     setState(() {
       _colors = List.generate(
-        _numberSquares,
+        _numberItems,
         (index) => _randomColor,
       );
     });
@@ -45,22 +36,23 @@ class _SquaresScreenState extends State<SquaresScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final _squares = List.generate(
-      _numberSquares,
-      (index) => ColorBox(color: _colors[index]),
-    );
     return Scaffold(
       appBar: AppBar(
-        title: Text(context.l10n.squaresScreenTitle),
+        title: Text(context.l10n.colorListScreenTitle),
       ),
       body: Stack(
         children: [
-          GridView.count(
-            crossAxisCount: 2,
-            padding: const EdgeInsets.symmetric(vertical: 82, horizontal: 31),
-            mainAxisSpacing: 10,
-            crossAxisSpacing: 10,
-            children: _squares,
+          ListView.builder(
+            padding: const EdgeInsets.symmetric(vertical: 14, horizontal: 16),
+            itemCount: _numberItems,
+            itemBuilder: (BuildContext context, int index) => Padding(
+              padding: const EdgeInsets.only(bottom: 10),
+              child: ColorBox(
+                key: ValueKey(index),
+                color: _colors?[index],
+                height: 71,
+              ),
+            ),
           ),
           Positioned(
             right: 30,
