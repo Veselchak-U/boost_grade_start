@@ -19,6 +19,7 @@ class SuggestionsPage extends StatelessWidget {
         ),
       ),
       body: ListView.separated(
+        padding: const EdgeInsets.all(16),
         itemCount: items.length,
         itemBuilder: (_, int index) {
           final title = items.elementAt(index).asPascalCase;
