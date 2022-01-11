@@ -25,17 +25,25 @@ class _SquaresScreenState extends State<SquaresScreen> {
         _random.nextInt(256),
       );
 
+  void _mixColors() {
+    _colors = List.generate(
+      _numberItems,
+      (_) => _randomColor,
+    );
+  }
+
   void _changeColors() {
     setState(() {
-      _colors = List.generate(
-        _numberItems,
-        (index) => _randomColor,
-      );
+      _mixColors();
     });
   }
 
   @override
   Widget build(BuildContext context) {
+    final squares = List.generate(
+      _numberItems,
+      (index) => ColorBox(color: _colors?[index]),
+    );
     return Scaffold(
       appBar: AppBar(
         title: Text(context.l10n.squaresScreenTitle),
@@ -47,10 +55,7 @@ class _SquaresScreenState extends State<SquaresScreen> {
             padding: const EdgeInsets.symmetric(vertical: 82, horizontal: 31),
             mainAxisSpacing: 10,
             crossAxisSpacing: 10,
-            children: List.generate(
-              _numberItems,
-              (index) => ColorBox(color: _colors?[index]),
-            ),
+            children: squares,
           ),
           Positioned(
             right: 30,
