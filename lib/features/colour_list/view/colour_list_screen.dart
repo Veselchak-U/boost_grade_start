@@ -25,12 +25,16 @@ class _ColourListScreenState extends State<ColourListScreen> {
         _random.nextInt(256),
       );
 
+  void _mixColors() {
+    _colors = List.generate(
+      _numberItems,
+      (_) => _randomColor,
+    );
+  }
+
   void _changeColors() {
     setState(() {
-      _colors = List.generate(
-        _numberItems,
-        (index) => _randomColor,
-      );
+      _mixColors();
     });
   }
 
@@ -46,17 +50,16 @@ class _ColourListScreenState extends State<ColourListScreen> {
       ),
       body: Stack(
         children: [
-          ListView.builder(
+          ListView.separated(
             padding: const EdgeInsets.symmetric(vertical: 14, horizontal: 16),
             itemCount: _numberItems,
-            itemBuilder: (BuildContext context, int index) => Padding(
-              padding: const EdgeInsets.only(bottom: 10),
-              child: ColorBox(
-                key: ValueKey(index),
-                color: _colors?[index],
-                height: 71,
-              ),
+            itemBuilder: (BuildContext context, int index) => ColorBox(
+              key: ValueKey(index),
+              color: _colors?[index],
+              height: 71,
             ),
+            separatorBuilder: (BuildContext context, int index) =>
+                const SizedBox(height: 10),
           ),
           Positioned(
             right: 30,
