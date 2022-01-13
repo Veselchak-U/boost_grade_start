@@ -2,6 +2,7 @@ import 'dart:math';
 
 import 'package:boost_grade_start/app/asset/asset.dart';
 import 'package:boost_grade_start/app/l10n/l10n.dart';
+import 'package:boost_grade_start/app/view/components/bgs_scaffold.dart';
 import 'package:boost_grade_start/app/view/components/color_box.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -14,9 +15,9 @@ class SquaresScreen extends StatefulWidget {
 }
 
 class _SquaresScreenState extends State<SquaresScreen> {
-  static const _numberSquares = 4;
+  static const _numberItems = 4;
   final _random = Random();
-  late List<Color?> _colors;
+  List<Color>? _colors;
 
   Color get _randomColor => Color.fromARGB(
         255,
@@ -25,31 +26,26 @@ class _SquaresScreenState extends State<SquaresScreen> {
         _random.nextInt(256),
       );
 
-  @override
-  void initState() {
-    super.initState();
+  void _mixColors() {
     _colors = List.generate(
-      _numberSquares,
-      (index) => null,
+      _numberItems,
+      (_) => _randomColor,
     );
   }
 
   void _changeColors() {
     setState(() {
-      _colors = List.generate(
-        _numberSquares,
-        (index) => _randomColor,
-      );
+      _mixColors();
     });
   }
 
   @override
   Widget build(BuildContext context) {
-    final _squares = List.generate(
-      _numberSquares,
-      (index) => ColorBox(color: _colors[index]),
+    final squares = List.generate(
+      _numberItems,
+      (index) => ColorBox(color: _colors?[index]),
     );
-    return Scaffold(
+    return BgsScaffold(
       appBar: AppBar(
         title: Text(context.l10n.squaresScreenTitle),
         leading: IconButton(
@@ -57,24 +53,16 @@ class _SquaresScreenState extends State<SquaresScreen> {
           onPressed: () => Navigator.pop(context),
         ),
       ),
-      body: Stack(
-        children: [
-          GridView.count(
-            crossAxisCount: 2,
-            padding: const EdgeInsets.symmetric(vertical: 82, horizontal: 31),
-            mainAxisSpacing: 10,
-            crossAxisSpacing: 10,
-            children: _squares,
-          ),
-          Positioned(
-            right: 30,
-            bottom: 45,
-            child: FloatingActionButton(
-              onPressed: _changeColors,
-              child: SvgPicture.asset(Asset.svg.iconEdit),
-            ),
-          )
-        ],
+      body: GridView.count(
+        crossAxisCount: 2,
+        padding: const EdgeInsets.symmetric(vertical: 82, horizontal: 31),
+        mainAxisSpacing: 10,
+        crossAxisSpacing: 10,
+        children: squares,
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: _changeColors,
+        child: SvgPicture.asset(Asset.svg.iconEdit),
       ),
     );
   }
