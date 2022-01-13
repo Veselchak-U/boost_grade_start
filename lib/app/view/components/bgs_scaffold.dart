@@ -6,10 +6,10 @@ class BgsScaffold extends Scaffold {
     Widget? body,
     Widget? floatingActionButton,
   }) : super(
-    appBar: appBar,
-    body: body,
-    floatingActionButton: floatingActionButton,
-  );
+          appBar: appBar,
+          body: body,
+          floatingActionButton: floatingActionButton,
+        );
 
   @override
   FloatingActionButtonLocation? get floatingActionButtonLocation =>
@@ -24,9 +24,9 @@ class _CustomFabLocation extends StandardFabLocation {
 
   @override
   double getOffsetX(
-      ScaffoldPrelayoutGeometry scaffoldGeometry,
-      double adjustment,
-      ) {
+    ScaffoldPrelayoutGeometry scaffoldGeometry,
+    double adjustment,
+  ) {
     return scaffoldGeometry.scaffoldSize.width -
         scaffoldGeometry.floatingActionButtonSize.width +
         adjustment -
@@ -35,9 +35,9 @@ class _CustomFabLocation extends StandardFabLocation {
 
   @override
   double getOffsetY(
-      ScaffoldPrelayoutGeometry scaffoldGeometry,
-      double adjustment,
-      ) {
+    ScaffoldPrelayoutGeometry scaffoldGeometry,
+    double adjustment,
+  ) {
     return scaffoldGeometry.scaffoldSize.height -
         scaffoldGeometry.floatingActionButtonSize.height +
         adjustment -
