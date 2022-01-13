@@ -2,6 +2,7 @@ import 'dart:math';
 
 import 'package:boost_grade_start/app/asset/asset.dart';
 import 'package:boost_grade_start/app/l10n/l10n.dart';
+import 'package:boost_grade_start/app/view/components/bgs_scaffold.dart';
 import 'package:boost_grade_start/app/view/components/color_box.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -40,36 +41,24 @@ class _ColourListScreenState extends State<ColourListScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return BgsScaffold(
       appBar: AppBar(
         title: Text(context.l10n.colorListScreenTitle),
-        leading: IconButton(
-          icon: const Icon(Icons.arrow_back),
-          onPressed: () => Navigator.pop(context),
-        ),
       ),
-      body: Stack(
-        children: [
-          ListView.separated(
-            padding: const EdgeInsets.symmetric(vertical: 14, horizontal: 16),
-            itemCount: _numberItems,
-            itemBuilder: (BuildContext context, int index) => ColorBox(
-              key: ValueKey(index),
-              color: _colors?[index],
-              height: 71,
-            ),
-            separatorBuilder: (BuildContext context, int index) =>
-                const SizedBox(height: 10),
-          ),
-          Positioned(
-            right: 30,
-            bottom: 45,
-            child: FloatingActionButton(
-              onPressed: _changeColors,
-              child: SvgPicture.asset(Asset.svg.iconEdit),
-            ),
-          )
-        ],
+      body: ListView.separated(
+        padding: const EdgeInsets.symmetric(vertical: 14, horizontal: 16),
+        itemCount: _numberItems,
+        itemBuilder: (BuildContext context, int index) => ColorBox(
+          key: ValueKey(index),
+          color: _colors?[index],
+          height: 71,
+        ),
+        separatorBuilder: (BuildContext context, int index) =>
+            const SizedBox(height: 10),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: _changeColors,
+        child: SvgPicture.asset(Asset.svg.iconEdit),
       ),
     );
   }
