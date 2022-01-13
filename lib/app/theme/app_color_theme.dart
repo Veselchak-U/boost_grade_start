@@ -14,4 +14,6 @@ abstract class AppColorTheme {
   TextStyle get appBarShadowTextStyle;
 
   ButtonStyle get navigationButtonStyle;
+
+  FloatingActionButtonThemeData get floatingActionButtonTheme;
 }

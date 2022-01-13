@@ -11,12 +11,16 @@ class AppColorThemeOrange implements AppColorTheme {
         primaryColor: _primaryColor,
         backgroundColor: _white,
         scaffoldBackgroundColor: _white,
+        disabledColor: _disabledColor,
         appBarTheme: appBarTheme,
+        floatingActionButtonTheme: floatingActionButtonTheme,
       );
 
   @override
   AppBarTheme get appBarTheme => const AppBarTheme(
         color: _primaryColor,
+        foregroundColor: _onSurface,
+        centerTitle: false,
         titleSpacing: 0,
         titleTextStyle: TextStyle(
           color: _onSurface,
@@ -49,9 +53,23 @@ class AppColorThemeOrange implements AppColorTheme {
         ),
       );
 
+  @override
+  FloatingActionButtonThemeData get floatingActionButtonTheme =>
+      FloatingActionButtonThemeData(
+        backgroundColor: _primaryColor,
+        foregroundColor: _onPrimaryContainer,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(16),
+        ),
+      );
+
   // background
   static const _white = Color(0xFFFFFFFF);
   static const _primaryColor = Colors.orangeAccent;
+  static const _disabledColor = Color(0xFFC4C4C4);
+
+  // foreground
+  static const _onPrimaryContainer = Color(0xFF21005D);
 
   // text
   static const _onSurface = Color(0xFF1C1B1F);
