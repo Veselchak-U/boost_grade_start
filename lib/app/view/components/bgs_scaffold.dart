@@ -17,7 +17,7 @@ class BgsScaffold extends Scaffold {
 }
 
 class _CustomFabLocation extends StandardFabLocation {
-  static const _customPaddingX = 35;
+  static const _customPaddingX = 30;
   static const _customPaddingY = 45;
 
   const _CustomFabLocation();

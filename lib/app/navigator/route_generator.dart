@@ -1,5 +1,7 @@
 import 'package:boost_grade_start/app/l10n/l10n.dart';
 import 'package:boost_grade_start/app/navigator/route_helper.dart';
+import 'package:boost_grade_start/features/colour_list/view/colour_list_screen.dart';
+import 'package:boost_grade_start/features/colour_list/view/colour_list_screen_route.dart';
 import 'package:boost_grade_start/features/main/view/main_screen.dart';
 import 'package:boost_grade_start/features/main/view/main_screen_route.dart';
 import 'package:boost_grade_start/features/squares/view/squares_screen.dart';
@@ -28,6 +30,15 @@ class RouteGenerator {
             arguments: settings.arguments,
           ),
           builder: (_) => const SquaresScreen(),
+        );
+
+        case ColourListScreenRoute.name:
+        return MaterialPageRoute<PageRoute>(
+          settings: RouteSettings(
+            name: settings.name,
+            arguments: settings.arguments,
+          ),
+          builder: (_) => const ColourListScreen(),
         );
 
       default:
