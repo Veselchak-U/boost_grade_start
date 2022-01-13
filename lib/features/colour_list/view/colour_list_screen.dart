@@ -48,13 +48,12 @@ class _ColourListScreenState extends State<ColourListScreen> {
       body: ListView.separated(
         padding: const EdgeInsets.symmetric(vertical: 14, horizontal: 16),
         itemCount: _numberItems,
-        itemBuilder: (BuildContext context, int index) => ColorBox(
+        itemBuilder: (_, int index) => ColorBox(
           key: ValueKey(index),
           color: _colors?[index],
           height: 71,
         ),
-        separatorBuilder: (BuildContext context, int index) =>
-            const SizedBox(height: 10),
+        separatorBuilder: (_, __) => const SizedBox(height: 10),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: _changeColors,

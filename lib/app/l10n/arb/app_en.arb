@@ -19,6 +19,6 @@
   "squaresScreenTitle": "4 squares",
   "colorListScreenTitle": "Color list",
   "codelabScreenTitle": "Codelab content",
-  "suggestionsPageTitle": "Saved Suggestions",
+  "favouritesPageTitle": "Favourites",
   "asyncRequestScreenTitle": "Asynchronous request"
 }

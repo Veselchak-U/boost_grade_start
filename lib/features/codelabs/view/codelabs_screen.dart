@@ -1,5 +1,5 @@
 import 'package:boost_grade_start/app/l10n/l10n.dart';
-import 'package:boost_grade_start/features/codelabs/view/page/suggestions_page_route.dart';
+import 'package:boost_grade_start/features/codelabs/view/page/favourites_page_route.dart';
 import 'package:english_words/english_words.dart';
 import 'package:flutter/material.dart';
 
@@ -11,62 +11,63 @@ class CodelabsScreen extends StatefulWidget {
 }
 
 class _CodelabsScreenState extends State<CodelabsScreen> {
-  final _suggestions = <WordPair>[];
-  final _saved = <WordPair>{};
+  final _items = <WordPair>[];
+  final _favourites = <WordPair>{};
 
-  Widget _buildSuggestions() {
+  Widget _buildItemList() {
     return ListView.builder(
       padding: const EdgeInsets.all(16),
       itemBuilder: (context, i) {
         if (i.isOdd) return const Divider();
         final index = i ~/ 2;
-        if (index >= _suggestions.length) {
-          _addSuggestions();
+        if (index >= _items.length) {
+          _addItems();
         }
-        return _buildRow(_suggestions[index]);
+        return _buildItem(_items[index]);
       },
     );
   }
 
-  void _addSuggestions() {
-    _suggestions.addAll(generateWordPairs().take(10));
+  void _addItems() {
+    _items.addAll(generateWordPairs().take(10));
   }
 
-  Widget _buildRow(WordPair pair) {
-    final alreadySaved = _saved.contains(pair);
+  Widget _buildItem(WordPair item) {
+    final isFavorite = _favourites.contains(item);
     return ListTile(
-      title: Text(pair.asPascalCase),
+      title: Text(item.asPascalCase),
       trailing: AnimatedSwitcher(
         duration: const Duration(milliseconds: 300),
         child: Icon(
-          alreadySaved ? Icons.favorite : Icons.favorite_border,
-          key: ValueKey(alreadySaved),
-          color: alreadySaved ? Colors.red : null,
+          isFavorite ? Icons.favorite : Icons.favorite_border,
+          key: ValueKey(isFavorite),
+          color: isFavorite ? Colors.red : null,
         ),
       ),
-      onTap: () => _switchLike(pair, alreadySaved),
+      onTap: () => _switchLike(item),
     );
   }
 
-  void _switchLike(WordPair pair, bool alreadySaved) {
+  void _switchLike(WordPair item) {
     setState(() {
-      _updateLike(pair, alreadySaved);
+      _updateFavourites(item);
     });
   }
 
-  void _updateLike(WordPair pair, bool alreadySaved) {
-    if (alreadySaved) {
-      _saved.remove(pair);
+  void _updateFavourites(WordPair item) {
+    final isFavorite = _favourites.contains(item);
+    if (isFavorite) {
+      _favourites.remove(item);
     } else {
-      _saved.add(pair);
+      _favourites.add(item);
     }
   }
 
-  void _openSavedSuggestionsPage() {
+  void _goToFavouritesPage() {
     Navigator.pushNamed(
       context,
-      SuggestionsPageRoute.name,
-      arguments: SuggestionsPageRouteArgs(_saved),
+      FavouritesPageRoute.name,
+      arguments: FavouritesPageRouteArgs(_favourites),
     );
   }
 
@@ -75,18 +76,14 @@ class _CodelabsScreenState extends State<CodelabsScreen> {
     return Scaffold(
       appBar: AppBar(
         title: Text(context.l10n.codelabScreenTitle),
-        leading: IconButton(
-          icon: const Icon(Icons.arrow_back),
-          onPressed: () => Navigator.pop(context),
-        ),
         actions: [
           IconButton(
             icon: const Icon(Icons.list),
-            onPressed: _openSavedSuggestionsPage,
+            onPressed: _goToFavouritesPage,
           ),
         ],
       ),
-      body: _buildSuggestions(),
+      body: _buildItemList(),
     );
   }
 }

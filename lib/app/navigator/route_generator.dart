@@ -2,8 +2,8 @@ import 'package:boost_grade_start/app/l10n/l10n.dart';
 import 'package:boost_grade_start/app/navigator/route_helper.dart';
 import 'package:boost_grade_start/features/codelabs/view/codelabs_screen.dart';
 import 'package:boost_grade_start/features/codelabs/view/codelabs_screen_route.dart';
-import 'package:boost_grade_start/features/codelabs/view/page/suggestions_page.dart';
-import 'package:boost_grade_start/features/codelabs/view/page/suggestions_page_route.dart';
+import 'package:boost_grade_start/features/codelabs/view/page/favourites_page.dart';
+import 'package:boost_grade_start/features/codelabs/view/page/favourites_page_route.dart';
 import 'package:boost_grade_start/features/colour_list/view/colour_list_screen.dart';
 import 'package:boost_grade_start/features/colour_list/view/colour_list_screen_route.dart';
 import 'package:boost_grade_start/features/main/view/main_screen.dart';
@@ -54,13 +54,13 @@ class RouteGenerator {
           builder: (_) => const CodelabsScreen(),
         );
 
-      case SuggestionsPageRoute.name:
-        final arguments = settings.arguments as SuggestionsPageRouteArgs;
+      case FavouritesPageRoute.name:
+        final arguments = settings.arguments as FavouritesPageRouteArgs;
         return MaterialPageRoute<PageRoute>(
           settings: RouteSettings(
             name: settings.name,
           ),
-          builder: (_) => SuggestionsPage(arguments),
+          builder: (_) => FavouritesPage(arguments),
         );
 
       default:

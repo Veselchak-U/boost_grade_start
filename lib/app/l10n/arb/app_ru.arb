@@ -19,6 +19,6 @@
   "squaresScreenTitle": "4 квадрата",
   "colorListScreenTitle": "Цветной список",
   "codelabScreenTitle": "Контент кодлаба",
-  "suggestionsPageTitle": "Сохраненные предложения",
+  "favouritesPageTitle": "Избранное",
   "asyncRequestScreenTitle": "Асинхронный запрос"
 }
