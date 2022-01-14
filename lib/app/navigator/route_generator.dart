@@ -1,5 +1,7 @@
 import 'package:boost_grade_start/app/l10n/l10n.dart';
 import 'package:boost_grade_start/app/navigator/route_helper.dart';
+import 'package:boost_grade_start/features/async_call/view/async_call_screen.dart';
+import 'package:boost_grade_start/features/async_call/view/async_call_screen_route.dart';
 import 'package:boost_grade_start/features/codelabs/view/codelabs_screen.dart';
 import 'package:boost_grade_start/features/codelabs/view/codelabs_screen_route.dart';
 import 'package:boost_grade_start/features/codelabs/view/page/favourites_page.dart';
@@ -55,12 +57,21 @@ class RouteGenerator {
         );
 
       case FavouritesPageRoute.name:
-        final arguments = settings.arguments as FavouritesPageRouteArgs;
+        final arguments = settings.arguments as FavouritesPageRouteArgs?;
         return MaterialPageRoute<PageRoute>(
           settings: RouteSettings(
             name: settings.name,
           ),
           builder: (_) => FavouritesPage(arguments),
+        );
+
+      case AsyncCallScreenRoute.name:
+        final arguments = settings.arguments as AsyncCallScreenRouteArgs?;
+        return MaterialPageRoute<PageRoute>(
+          settings: RouteSettings(
+            name: settings.name,
+          ),
+          builder: (_) => AsyncCallScreen(arguments),
         );
 
       default:

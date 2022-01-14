@@ -9,6 +9,7 @@
       }
     }
   },
+  "noImageLabel": "Нет изображения",
   "homeScreenTitle": "Flutter-демо домашняя страница",
   "homeScreenLabel": "Вы нажимали на кнопку столько раз:",
   "fabColorTooltip": "Изменить цветовую тему",
@@ -20,5 +21,5 @@
   "colorListScreenTitle": "Цветной список",
   "codelabScreenTitle": "Контент кодлаба",
   "favouritesPageTitle": "Избранное",
-  "asyncRequestScreenTitle": "Асинхронный запрос"
+  "asyncCallScreenTitle": "Асинхронный вызов"
 }

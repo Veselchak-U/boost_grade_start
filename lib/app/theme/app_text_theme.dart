@@ -27,4 +27,9 @@ class AppTextTheme {
     fontSize: 16,
     fontWeight: FontWeight.w400,
   );
+  final TextStyle photoCardTitle = const TextStyle(
+    color: Colors.black,
+    fontSize: 14,
+    height: 28 / 14,
+  );
 }
