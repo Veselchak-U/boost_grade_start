@@ -14,22 +14,34 @@ class _CodelabsScreenState extends State<CodelabsScreen> {
   final _items = <WordPair>[];
   final _favourites = <WordPair>{};
 
-  Widget _buildItemList() {
-    return ListView.builder(
-      padding: const EdgeInsets.all(16),
-      itemBuilder: (context, i) {
-        if (i.isOdd) return const Divider();
-        final index = i ~/ 2;
-        if (index >= _items.length) {
-          _addItems();
-        }
-        return _buildItem(_items[index]);
-      },
-    );
+  @override
+  void initState() {
+    super.initState();
+    _addItems();
   }
 
   void _addItems() {
     _items.addAll(generateWordPairs().take(10));
+  }
+
+  Widget _buildItemList() {
+    return ListView.separated(
+      itemCount: _items.length,
+      itemBuilder: (_, index) {
+        if (index == _items.length - 1) {
+          _getNextPage();
+        }
+        return _buildItem(_items[index]);
+      },
+      separatorBuilder: (_, __) => const Divider(),
+    );
+  }
+
+  Future<void> _getNextPage() async {
+    await Future.delayed(Duration.zero);
+    setState(() {
+      _addItems();
+    });
   }
 
   Widget _buildItem(WordPair item) {
