@@ -5,11 +5,11 @@ import 'package:flutter/material.dart';
 class FavouritesPage extends StatelessWidget {
   const FavouritesPage(this.arguments);
 
-  final FavouritesPageRouteArgs arguments;
+  final FavouritesPageRouteArgs? arguments;
 
   @override
   Widget build(BuildContext context) {
-    final items = arguments.items;
+    final items = arguments?.items ?? {};
     return Scaffold(
       appBar: AppBar(
         title: Text(context.l10n.favouritesPageTitle),

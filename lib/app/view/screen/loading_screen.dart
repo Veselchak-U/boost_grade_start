@@ -1,3 +1,4 @@
+import 'package:boost_grade_start/app/view/components/bgs/bgs_progress_indicator.dart';
 import 'package:flutter/material.dart';
 
 class LoadingScreen extends StatelessWidget {
@@ -16,9 +17,7 @@ class LoadingScreen extends StatelessWidget {
             FlutterLogo(size: 100),
             SizedBox(
               height: 100,
-              child: Center(
-                child: CircularProgressIndicator(strokeWidth: 2),
-              ),
+              child: BgsProgressIndicator(),
             ),
           ],
         ),
