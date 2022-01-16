@@ -18,6 +18,7 @@
   "mainScreenTitle": "Главная",
   "squaresScreenTitle": "4 квадрата",
   "colorListScreenTitle": "Цветной список",
-  "codelabScreenTitle": "Codelab",
+  "codelabScreenTitle": "Контент кодлаба",
+  "favouritesPageTitle": "Избранное",
   "asyncRequestScreenTitle": "Асинхронный запрос"
 }

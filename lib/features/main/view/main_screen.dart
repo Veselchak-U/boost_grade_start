@@ -1,5 +1,6 @@
 import 'package:boost_grade_start/app/l10n/l10n.dart';
 import 'package:boost_grade_start/app/theme/app_color_theme.dart';
+import 'package:boost_grade_start/features/codelabs/view/codelabs_screen_route.dart';
 import 'package:boost_grade_start/features/colour_list/view/colour_list_screen_route.dart';
 import 'package:boost_grade_start/features/main/view/components/navigation_button.dart';
 import 'package:boost_grade_start/features/squares/view/squares_screen_route.dart';
@@ -35,6 +36,7 @@ class MainScreen extends StatelessWidget {
               ),
               NavigationButton(
                 label: context.l10n.codelabScreenTitle,
+                routeName: CodelabsScreenRoute.name,
               ),
               NavigationButton(
                 label: context.l10n.asyncRequestScreenTitle,

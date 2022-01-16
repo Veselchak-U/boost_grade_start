@@ -16,6 +16,8 @@ dependencies:
   # ui
   cupertino_icons: ^1.0.4
   flutter_svg: ^1.0.0
+  # utils
+  english_words: ^4.0.0
 
 dev_dependencies:
   flutter_test:

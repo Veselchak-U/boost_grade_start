@@ -18,6 +18,7 @@
   "mainScreenTitle": "Main",
   "squaresScreenTitle": "4 squares",
   "colorListScreenTitle": "Color list",
-  "codelabScreenTitle": "Codelab",
+  "codelabScreenTitle": "Codelab content",
+  "favouritesPageTitle": "Favourites",
   "asyncRequestScreenTitle": "Asynchronous request"
 }

@@ -48,6 +48,10 @@ class _SquaresScreenState extends State<SquaresScreen> {
     return BgsScaffold(
       appBar: AppBar(
         title: Text(context.l10n.squaresScreenTitle),
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back),
+          onPressed: () => Navigator.pop(context),
+        ),
       ),
       body: GridView.count(
         crossAxisCount: 2,
