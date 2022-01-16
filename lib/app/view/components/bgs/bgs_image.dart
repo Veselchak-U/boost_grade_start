@@ -1,6 +1,5 @@
 import 'package:boost_grade_start/app/l10n/l10n.dart';
 import 'package:boost_grade_start/app/theme/app_color_theme.dart';
-import 'package:boost_grade_start/util/debug.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
@@ -37,7 +36,7 @@ class _NoImageLabel extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    out(error);
+    debugPrint('$error');
     return Container(
       color: context.colorTheme.theme.primaryColorLight,
       alignment: Alignment.center,

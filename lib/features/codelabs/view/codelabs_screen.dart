@@ -12,15 +12,17 @@ class CodelabsScreen extends StatefulWidget {
 }
 
 class _CodelabsScreenState extends State<CodelabsScreen> {
-  final _controller = ScrollController();
-  final _items = <WordPair>[];
-  final _favourites = <WordPair>{};
+  late final List<WordPair> _items;
+  late final Set<WordPair> _favourites;
+  late final ScrollController _controller;
 
   @override
   void initState() {
     super.initState();
+    _items = [];
+    _favourites = {};
     _addItems();
-    _controller.addListener(_scrollListener);
+    _controller = ScrollController()..addListener(_scrollListener);
   }
 
   @override
