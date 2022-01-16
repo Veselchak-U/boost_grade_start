@@ -1,4 +1,5 @@
 import 'package:boost_grade_start/app/l10n/l10n.dart';
+import 'package:boost_grade_start/features/codelabs/view/components/codelabs_list_item.dart';
 import 'package:boost_grade_start/features/codelabs/view/page/favourites_page_route.dart';
 import 'package:english_words/english_words.dart';
 import 'package:flutter/material.dart';
@@ -11,6 +12,7 @@ class CodelabsScreen extends StatefulWidget {
 }
 
 class _CodelabsScreenState extends State<CodelabsScreen> {
+  final _controller = ScrollController();
   final _items = <WordPair>[];
   final _favourites = <WordPair>{};
 
@@ -18,61 +20,29 @@ class _CodelabsScreenState extends State<CodelabsScreen> {
   void initState() {
     super.initState();
     _addItems();
+    _controller.addListener(_scrollListener);
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
   }
 
   void _addItems() {
-    _items.addAll(generateWordPairs().take(10));
+    _items.addAll(generateWordPairs().take(20));
   }
 
-  Widget _buildItemList() {
-    return ListView.separated(
-      itemCount: _items.length,
-      itemBuilder: (_, index) {
-        if (index == _items.length - 1) {
-          _getNextPage();
-        }
-        return _buildItem(_items[index]);
-      },
-      separatorBuilder: (_, __) => const Divider(),
-    );
+  void _scrollListener() {
+    if (_controller.position.extentAfter < 100) {
+      _getNextPage();
+    }
   }
 
   Future<void> _getNextPage() async {
-    await Future.delayed(Duration.zero);
     setState(() {
       _addItems();
     });
-  }
-
-  Widget _buildItem(WordPair item) {
-    final isFavorite = _favourites.contains(item);
-    return ListTile(
-      title: Text(item.asPascalCase),
-      trailing: AnimatedSwitcher(
-        duration: const Duration(milliseconds: 300),
-        child: Icon(
-          isFavorite ? Icons.favorite : Icons.favorite_border,
-          key: ValueKey(isFavorite),
-          color: isFavorite ? Colors.red : null,
-        ),
-      ),
-      onTap: () => _switchLike(item),
-    );
-  }
-
-  void _switchLike(WordPair item) {
-    setState(() {
-      _updateFavourites(item);
-    });
-  }
-
-  void _updateFavourites(WordPair item) {
-    final isFavorite = _favourites.contains(item);
-    if (isFavorite) {
-      _favourites.remove(item);
-    } else {
-      _favourites.add(item);
-    }
   }
 
   void _goToFavouritesPage() {
@@ -95,7 +65,17 @@ class _CodelabsScreenState extends State<CodelabsScreen> {
           ),
         ],
       ),
-      body: _buildItemList(),
+      body: ListView.separated(
+        padding: const EdgeInsets.all(16),
+        controller: _controller,
+        itemCount: _items.length,
+        itemBuilder: (_, index) => CodelabsListItem(
+          key: ValueKey(index),
+          item: _items[index],
+          favourites: _favourites,
+        ),
+        separatorBuilder: (_, __) => const Divider(),
+      ),
     );
   }
 }
